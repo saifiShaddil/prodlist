@@ -37,6 +37,7 @@ const FormInput = ({
       ) : (
         <input
           ref={Inputref}
+          required
           type={type}
           name={name}
           placeholder={placeholder}

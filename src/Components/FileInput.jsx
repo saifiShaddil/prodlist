@@ -25,6 +25,7 @@ const FileInput = ({ onChange, file }) => {
           ref={fileRef}
           className="form-control hidden w-full px-3 py-1.5 text-base"
           type="file"
+          accept=".jpg,.jpeg,.png"
           id="file"
           onChange={(e) => onChange(e)}
         />
