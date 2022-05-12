@@ -2,7 +2,7 @@ import React from "react"
 import { useDispatch } from "react-redux"
 import { REMOVE_PROD } from "../store/actionType"
 
-const List = ({ id, name, image, price }) => {
+const List = ({ id, name, image, price, description }) => {
   const dispatch = useDispatch()
   const removeProduct = () => {
     dispatch({
@@ -11,29 +11,30 @@ const List = ({ id, name, image, price }) => {
     })
   }
   return (
-    <div className="flex w-[80%] overflow-x-hidden shadow-md shadow-slate-300/60 rounded-md md:w-[70%] mt-4 mx-auto p-4 items-center">
-      <div className="flex-1 flex">
+    <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
         <img
           src={`data:image/jpeg;base64,${image.split(",")[1]}`}
           alt="product_name"
-          className="w-16 h-16 bg-white mr-2"
+          className="w-12 h-12"
         />
-        <div className="flex flex-col items-start ml-6">
-          <strong className="text-gray-700 tracking-wide font-bold text-xl">
-            {name}
-          </strong>
-          <p className="text-md tracking-tight text-gray-700 font-semibold leading-6">
-            {price}
-          </p>
-        </div>
-      </div>
-      <p
+      </td>
+      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+        {name}
+      </td>
+      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+        {description}
+      </td>
+      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+        {price}
+      </td>
+      <td
         onClick={() => removeProduct()}
-        className="text-md text-blue-700 cursor-pointer px-4 py-2 rounded-md hover:text-blue-800 transition hover:bg-blue-400"
+        className="text-sm cursor-pointer text-blue-700  font-semibild px-6 py-4 hover:text-blue-900 whitespace-nowrap"
       >
         Remove
-      </p>
-    </div>
+      </td>
+    </tr>
   )
 }
 
